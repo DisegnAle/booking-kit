@@ -1,0 +1,17 @@
+<section class="add-booking-form">
+
+    <el-row>
+      <el-col>
+        <ul>
+          <el-row class="text-align--left" v-for="booking in bookings" :gutter="20">
+            <el-col :span="14">{{booking.firstName}} {{booking.lastName}}</el-col>
+            <el-col :span="7">{{booking.date}}</el-col>
+            <el-col :span="3">
+              <i @click="removeBooking(booking)" class="el-icon-remove cursor--pointer"></i>
+            </el-col>
+          </el-row>
+        </ul>
+      </el-col>
+    </el-row>
+
+   </section>

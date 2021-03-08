@@ -1,0 +1,42 @@
+<section class="add-booking-form">
+
+    <el-form :inline-message="true" :rules="formValidationRules" ref="bookingForm" :model="bookingForm">
+   
+       <!-- first name -->
+       <el-row>
+         <el-col>
+           <el-form-item label="First name" prop="firstName">
+             <el-input size="mini" id="firstName" name="firstName" v-model="bookingForm.firstName"></el-input>
+           </el-form-item>
+         </el-col>
+       </el-row>
+   
+       <!-- last name -->
+       <el-row>
+         <el-col>
+           <el-form-item label="Last name" prop="lastName">
+             <el-input size="mini" id="lastName" name="lastName" v-model="bookingForm.lastName"></el-input>
+           </el-form-item>
+         </el-col>
+       </el-row>
+   
+       <!-- date -->
+       <el-row>
+         <el-col>
+           <el-form-item label="Date" prop="date">
+             <el-date-picker size="mini" :picker-options="pickerOptions" id="date" name="date" value-format="dd/MM/yyyy" format="dd/MM/yyyy" v-model="bookingForm.date" type="date" placeholder="dd/mm/yyyy">
+             </el-date-picker>
+           </el-form-item>
+         </el-col>
+       </el-row>
+   
+       <!-- submit -->
+       <el-row class="mt-1">
+         <el-col>
+           <el-button size="mini" @click="onSubmit('bookingForm', bookingForm)" type="primary">Add booking</el-button>
+         </el-col>
+       </el-row>
+   
+     </el-form>
+
+   </section>
