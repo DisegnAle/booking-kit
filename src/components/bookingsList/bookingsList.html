@@ -1,11 +1,11 @@
-<section class="add-booking-form">
+<section class="bookings-list">
 
   <el-row>
     <el-col>
       <ul v-if="bookings && bookings.length > 0">
         <div class="text-align--left" v-for="booking in bookings" :gutter="20">
-          <el-col :span="14">{{booking.firstName}} {{booking.lastName}}</el-col>
-          <el-col :span="7">{{booking.date}}</el-col>
+          <el-col :span="13">{{booking.firstName}} {{booking.lastName}}</el-col>
+          <el-col :span="8">{{booking.date}}</el-col>
           <el-col :span="3">
             <i @click="removeBooking(booking)" class="el-icon-remove cursor--pointer"></i>
           </el-col>

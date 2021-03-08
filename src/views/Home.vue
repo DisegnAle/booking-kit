@@ -1,61 +1,53 @@
 <template>
 <div class="home">
+
     <el-container>
-        <el-main>
-            <el-row :gutter="20">
-                <el-col :md="24" :lg="8">
+        <div class="container__grid">
 
-                    <!-- booking form -->
-                    <el-row v-setHeightDirective="{divideSpaceInto:2}">
-                        <el-col class="container__parent">
-                            <el-card class="box-card container__child">
-                                <div>
-                                    <add-booking-form></add-booking-form>
-                                </div>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-
-                    <!-- bookings list -->
-                    <el-row v-setHeightDirective="{divideSpaceInto:2}">
-                        <el-col class="container__parent">
-                            <el-card class="box-card container__child">
-                                <div slot="header" class="clearfix text-align--left">
-                                    <span>
-                                        <strong>
-                                            Bookings List
-                                        </strong>
-                                    </span>
-                                </div>
-                                <div>
-                                    <bookings-list></bookings-list>
-                                </div>
-                            </el-card>
-                        </el-col>
-                    </el-row>
-                </el-col>
-
-                <!-- bookings chart -->
-                <el-col :md="24" :lg="16" v-setHeightDirective>
-                    <div class="container__parent">
-                        <el-card class="box-card container__child">
-                            <div slot="header" class="clearfix text-align--left">
-                                <span>
-                                    <strong>
-                                        Statistics
-                                    </strong>
-                                </span>
-                            </div>
-                            <div>
-                                <chart></chart>
-                            </div>
-                        </el-card>
+            <!-- booking form -->
+            <div class="container__bookingForm">
+                <el-card class="box-card">
+                    <div>
+                        <add-booking-form></add-booking-form>
                     </div>
-                </el-col>
+                </el-card>
+            </div>
 
-            </el-row>
-        </el-main>
+            <!-- bookings list -->
+            <div class="container__bookingsList">
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix text-align--left">
+                        <span>
+                            <strong>
+                                Bookings List
+                            </strong>
+                        </span>
+                    </div>
+                    <div>
+                        <bookings-list></bookings-list>
+                    </div>
+                </el-card>
+            </div>
+
+            <!-- bookings chart -->
+            <div class="container__chart">
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix text-align--left">
+                        <span>
+                            <strong>
+                                Statistics
+                            </strong>
+                        </span>
+                    </div>
+                    <div>
+                        <chart></chart>
+                    </div>
+                </el-card>
+
+            </div>
+        </div>
     </el-container>
+
 </div>
 </template>
 
@@ -63,7 +55,6 @@
 import addBookingForm from '@/components/addBookingForm/index';
 import chart from '@/components/chart/index'
 import bookingsList from '@/components/bookingsList/index'
-import setHeightDirective from '../directives/setHeight.directive'
 
 export default {
     name: 'Home',
@@ -71,9 +62,6 @@ export default {
         addBookingForm,
         chart,
         bookingsList
-    },
-    directives: {
-        setHeightDirective
     },
     data() {
         return {};
@@ -86,37 +74,91 @@ export default {
 </script>
 
 <style lang="less">
-.el-main {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.el-card__header,
-.el-card__body {
-    padding: 5px 20px !important;
-}
-
-.el-form-item__label {
-    line-height: 20px !important;
-}
-
 .el-picker-panel,
 .el-date-picker,
 .el-popper {
     font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
-.container__parent {
-    overflow: hidden;
-    height: 100%;
-    .container__child {
-        height: 95%;
+@media screen and (max-width: 767px) {
+    .container {
+        &__grid {
+            padding: 2vh;
+            width: 100vw;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas:
+                "bookingForm"
+                "bookingsList"
+                "chart";
+
+            .container {
+
+                &__bookingForm,
+                &__bookingsList,
+                &__chart {
+                    margin-bottom: 1vh;
+                }
+
+                &__bookingsList{
+                  max-height: 50vh;
+                }
+            }
+        }
     }
 }
 
-@media screen and (max-width: 767px) {
-    .container__parent {
-        margin-top: 1em;
+@media screen and (min-width: 768px) {
+    .container {
+        &__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr;
+            grid-gap: 10px;
+            width: 100vw;
+            height: 100vh;
+            padding: 2vh;
+            grid-template-areas:
+                "bookingForm chart chart chart"
+                "bookingForm chart chart chart"
+                "bookingsList chart chart chart"
+                "bookingsList chart chart chart";
+
+            .container {
+                &__bookingForm {
+                    grid-area: bookingForm;
+                }
+
+                &__bookingsList {
+                    grid-area: bookingsList;
+                }
+
+                &__chart {
+                    grid-area: chart;
+                }
+
+                &__bookingForm,
+                &__bookingsList,
+                &__chart {
+                    .box-card {
+                        height: 100%;
+                    }
+                }
+
+                &__bookingForm,
+                &__bookingsList {
+
+                    .el-card__header,
+                    .el-card__body {
+                        padding: 5% 3% !important;
+                    }
+
+                    .el-form-item__label {
+                        line-height: 2em !important;
+                    }
+                }
+            }
+        }
     }
 }
 </style>
