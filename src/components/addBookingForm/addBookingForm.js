@@ -43,7 +43,11 @@ export default {
       },
       pickerOptions: {
         disabledDate(time) {
-          return time.getTime() < Date.now() - 8.64e7;
+          const NEXT_YEAR = new Date().getFullYear()+1;
+          const FUTURE_DATES = new Date(NEXT_YEAR, 0, 0);
+          const IS_PAST_DATE = time.getTime() < Date.now() - 8.64e7;
+          const IS_FUTURE_DATE = time.getTime() > FUTURE_DATES;
+          return IS_PAST_DATE || IS_FUTURE_DATE;
         }
       }
     };

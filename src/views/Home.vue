@@ -9,13 +9,6 @@
                     <el-row v-setHeightDirective="{divideSpaceInto:2}">
                         <el-col class="container__parent">
                             <el-card class="box-card container__child">
-                                <div slot="header" class="clearfix">
-                                    <span>
-                                      <strong>
-                                        Add booking
-                                      </strong>
-                                    </span>
-                                </div>
                                 <div>
                                     <add-booking-form></add-booking-form>
                                 </div>
@@ -27,11 +20,11 @@
                     <el-row v-setHeightDirective="{divideSpaceInto:2}">
                         <el-col class="container__parent">
                             <el-card class="box-card container__child">
-                                <div slot="header" class="clearfix">
+                                <div slot="header" class="clearfix text-align--left">
                                     <span>
-                                      <strong>
-                                        Bookings List
-                                      </strong>
+                                        <strong>
+                                            Bookings List
+                                        </strong>
                                     </span>
                                 </div>
                                 <div>
@@ -43,19 +36,21 @@
                 </el-col>
 
                 <!-- bookings chart -->
-                <el-col class="container__parent" :md="24" :lg="16" v-setHeightDirective>
-                    <el-card class="box-card container__child">
-                        <div slot="header" class="clearfix">
-                            <span>
-                              <strong>
-                                Statistics
-                              </strong>
-                            </span>
-                        </div>
-                        <div>
-                            <chart></chart>
-                        </div>
-                    </el-card>
+                <el-col :md="24" :lg="16" v-setHeightDirective>
+                    <div class="container__parent">
+                        <el-card class="box-card container__child">
+                            <div slot="header" class="clearfix text-align--left">
+                                <span>
+                                    <strong>
+                                        Statistics
+                                    </strong>
+                                </span>
+                            </div>
+                            <div>
+                                <chart></chart>
+                            </div>
+                        </el-card>
+                    </div>
                 </el-col>
 
             </el-row>
@@ -65,7 +60,6 @@
 </template>
 
 <script>
-
 import addBookingForm from '@/components/addBookingForm/index';
 import chart from '@/components/chart/index'
 import bookingsList from '@/components/bookingsList/index'
@@ -102,21 +96,27 @@ export default {
     padding: 5px 20px !important;
 }
 
-.el-form-item__label{
-  line-height: 20px !important;
+.el-form-item__label {
+    line-height: 20px !important;
+}
+
+.el-picker-panel,
+.el-date-picker,
+.el-popper {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 
 .container__parent {
-    height: 100%;
     overflow: hidden;
+    height: 100%;
     .container__child {
         height: 95%;
     }
 }
 
 @media screen and (max-width: 767px) {
-  .container__parent {
-    margin-top: 1em;
-  }
+    .container__parent {
+        margin-top: 1em;
+    }
 }
 </style>

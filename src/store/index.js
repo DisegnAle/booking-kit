@@ -47,7 +47,7 @@ export default new Vuex.Store({
             },
             tooltips: {
               enabled: true
-            }
+            },
           },
         }
       },

@@ -1,17 +1,21 @@
 <section class="add-booking-form">
 
-    <el-row>
-      <el-col>
-        <ul>
-          <el-row class="text-align--left" v-for="booking in bookings" :gutter="20">
-            <el-col :span="14">{{booking.firstName}} {{booking.lastName}}</el-col>
-            <el-col :span="7">{{booking.date}}</el-col>
-            <el-col :span="3">
-              <i @click="removeBooking(booking)" class="el-icon-remove cursor--pointer"></i>
-            </el-col>
-          </el-row>
-        </ul>
-      </el-col>
-    </el-row>
+  <el-row>
+    <el-col>
+      <ul v-if="bookings && bookings.length > 0">
+        <div class="text-align--left" v-for="booking in bookings" :gutter="20">
+          <el-col :span="14">{{booking.firstName}} {{booking.lastName}}</el-col>
+          <el-col :span="7">{{booking.date}}</el-col>
+          <el-col :span="3">
+            <i @click="removeBooking(booking)" class="el-icon-remove cursor--pointer"></i>
+          </el-col>
+        </div>
+      </ul>
+      <div v-else>
+        <el-alert title="No bookings present" type="info">
+        </el-alert>
+      </div>
+    </el-col>
+  </el-row>
 
-   </section>
+</section>
