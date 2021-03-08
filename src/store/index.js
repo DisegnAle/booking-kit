@@ -51,20 +51,7 @@ export default new Vuex.Store({
           },
         }
       },
-      list: [
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'},
-        {firstName: 'aldo', lastName: 'basso', id: '1234'}
-      ],
+      list: [],
     }
   },
   mutations: {
