@@ -4,7 +4,7 @@ export default {
   components: {},
   data() {
     const onlyLettersAccepted = (rule, value, callback) => {
-      const letters = /^[A-Za-z]+$/;
+      const letters = /^[A-Za-z ]+$/;
       if (!value.match(letters)) {
         callback(new Error('Please input only letters'));
       } else {

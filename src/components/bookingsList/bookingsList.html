@@ -4,11 +4,16 @@
     <el-col>
       <ul v-if="bookings && bookings.length > 0">
         <div class="text-align--left" v-for="booking in bookings" :gutter="20">
-          <el-col :span="13">{{booking.firstName}} {{booking.lastName}}</el-col>
-          <el-col :span="8">{{booking.date}}</el-col>
-          <el-col :span="3">
-            <i @click="removeBooking(booking)" class="el-icon-remove cursor--pointer"></i>
-          </el-col>
+          <el-row>
+            <el-col :span="13">{{booking.firstName}} {{booking.lastName}}</el-col>
+            <el-col :span="8">{{booking.date}}</el-col>
+            <el-col :span="3">
+              <i @click="removeBooking(booking)" class="el-icon-remove cursor--pointer"></i>
+            </el-col>
+          </el-row>
+          <el-row>
+            <el-divider></el-divider>
+          </el-row>
         </div>
       </ul>
       <div v-else>
