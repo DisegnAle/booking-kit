@@ -25,8 +25,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 ### Assignment explanation
-clone https://github.com/DisegnAle/booking-kit-assignment.git .
-live https://disegnale.github.io/booking-kit-assignment/ .
+clone https://github.com/DisegnAle/booking-kit-assignment.git <br />
+live https://disegnale.github.io/booking-kit-assignment/ <br />
 
 - FRAMEWORK: VueJs 2.6.11;
 - STYLE: ElementUI library, CSS grids, BEM approach and LESS language;
