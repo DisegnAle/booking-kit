@@ -1,4 +1,3 @@
-
 export default {
   name: 'bookingsList',
   components: {},
@@ -6,14 +5,14 @@ export default {
     return {};
   },
   methods: {
-    removeBooking(booking){
+    removeBooking(booking) {
       this.$store.dispatch('removeExistingBooking', booking);
-    }
+    },
   },
   computed: {
     bookings() {
       return this.$store.state.bookings.list;
-    }
+    },
   },
   mounted() {},
 

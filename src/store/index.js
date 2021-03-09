@@ -1,7 +1,8 @@
-
+/* eslint max-len: off */
 import Vue from 'vue';
 import Vuex from 'vuex';
-import bookingsOperations from '../utils/bookingsOperations'
+import bookingsOperations from '../utils/bookingsOperations';
+
 Vue.use(Vuex);
 
 const MONTHS_LABELS = [
@@ -16,7 +17,7 @@ const MONTHS_LABELS = [
   'September',
   'October',
   'November',
-  'December'
+  'December',
 ];
 
 const DEFAULT_VISITS_PER_MONTH = bookingsOperations.populateDefaultVisitsPerMonthArray();
@@ -34,68 +35,62 @@ export default new Vuex.Store({
               data: [...DEFAULT_VISITS_PER_MONTH],
               backgroundColor: 'rgb(64, 158, 255)',
               borderWidth: 1,
-            }]
+            }],
           },
           options: {
             scales: {
               yAxes: [{
                 ticks: {
                   beginAtZero: true,
-                  stepSize: 1
-                }
-              }]
+                  stepSize: 1,
+                },
+              }],
             },
             tooltips: {
-              enabled: true
+              enabled: true,
             },
           },
-        }
+        },
       },
       list: [],
-    }
+    },
   },
   mutations: {
     addNewBooking(state, newBooking) {
-
-      state.bookings.chart.configuration.data.datasets[0].data =
-        bookingsOperations.addNewBooking_TO_CHART({
-          bookings: state.bookings,
-          newBooking
-        });
+      state.bookings.chart.configuration.data.datasets[0].data = bookingsOperations.addNewBooking_TO_CHART({
+        bookings: state.bookings,
+        newBooking,
+      });
 
       state.bookings.list = bookingsOperations.addNewBooking_TO_LIST({
         bookings: state.bookings,
-        newBooking
+        newBooking,
       });
     },
 
     removeExistingBooking(state, bookingToRemove) {
+      state.bookings.chart.configuration.data.datasets[0].data = bookingsOperations.removeExistingBooking_FROM_CHART({
+        bookings: state.bookings,
+        bookingToRemove,
+      });
 
-      state.bookings.chart.configuration.data.datasets[0].data =
-        bookingsOperations.removeExistingBooking_FROM_CHART({
-          bookings: state.bookings,
-          bookingToRemove
-        });
-
-      state.bookings.list =
-        bookingsOperations.removeExistingBooking_FROM_LIST({
-          bookings: state.bookings,
-          bookingToRemove
-        });
-
-    }
+      state.bookings.list = bookingsOperations.removeExistingBooking_FROM_LIST({
+        bookings: state.bookings,
+        bookingToRemove,
+      });
+    },
   },
   actions: {
     addNewBooking({
-      commit
+      commit,
     }, booking) {
-      commit('addNewBooking', booking)
+      commit('addNewBooking', booking);
     },
     removeExistingBooking({
-      commit
+      commit,
     }, booking) {
-      commit('removeExistingBooking', booking)
-    }
+      commit('removeExistingBooking', booking);
+    },
   },
   modules: {},
 });

@@ -52,23 +52,23 @@
 </template>
 
 <script>
-import addBookingForm from '@/components/addBookingForm/index';
-import chart from '@/components/chart/index'
-import bookingsList from '@/components/bookingsList/index'
+import addBookingForm from '@/components/addBookingForm/index.vue';
+import chart from '@/components/chart/index.vue';
+import bookingsList from '@/components/bookingsList/index.vue';
 
 export default {
-    name: 'Home',
-    components: {
-        addBookingForm,
-        chart,
-        bookingsList
-    },
-    data() {
-        return {};
-    },
-    methods: {
+  name: 'Home',
+  components: {
+    addBookingForm,
+    chart,
+    bookingsList,
+  },
+  data() {
+    return {};
+  },
+  methods: {
 
-    },
+  },
 
 };
 </script>
