@@ -1,4 +1,6 @@
-# bookingkit-assesment
+# Booking kit
+
+Application built with Vue3 simulating a booking management tool.
 
 ## Project setup
 ```
@@ -24,7 +26,7 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-### Assignment explanation
+### Project explanation
 clone https://github.com/DisegnAle/booking-kit-assignment.git <br />
 live https://disegnale.github.io/booking-kit-assignment/ <br />
 
